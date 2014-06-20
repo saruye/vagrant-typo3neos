@@ -1,23 +1,25 @@
 #!/usr/bin/env ruby
-#^syntax detection
 
 site 'http://community.opscode.com/api/v1'
 
 cookbook "ntp"
 cookbook "openssh"
-cookbook "php"
-#cookbook "apache2", :git => "git://github.com/tolleiv/apache2.git", :ref => "COOK-1984"
+cookbook "php",
+	'1.4.6'
 cookbook "apache2"
-#cookbook "mysql", :git => "git://github.com/opscode-cookbooks/mysql.git"
-cookbook "mysql"
-cookbook "apt", :git => "git://github.com/opscode-cookbooks/apt.git"
-cookbook "git"
-cookbook "composer"
-
-# install oh-my-zsh
+cookbook "mysql",
+	"4.1.2"
+cookbook "apt"
+cookbook "git",
+	# Workound for  Error: undefined local variable or method `use_inline_resources'
+	:git => "git://github.com/ComSubVie/git.git"
+cookbook "composer",
+    :git => "git://github.com/Morphodo/composer.git"
+cookbook "typo3_flow",
+    :git => "git://github.com/Morphodo/typo3_flow-chef-recipe.git"
 cookbook "chef-oh-my-zsh",
     :git => "git://github.com/tlayh/chef-oh-my-zsh.git"
-
-# install cucmber
 cookbook "tl-cucumber",
     :git => "git://github.com/tlayh/tl-cucumber.git"
+cookbook 'build-essential',
+	'1.4.4'

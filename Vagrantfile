@@ -14,25 +14,16 @@ Vagrant.configure("2") do |config|
 	config.vm.provision :chef_solo do |chef|
 		chef.cookbooks_path = [ "cookbooks", "site-cookbooks" ]
 
-		chef.log_level = :debug
+		#chef.log_level = :debug
 
 		chef.add_recipe "typo3-neos"
-		#chef.add_recipe "chef-oh-my-zsh"
 
-		chef.json = {
-			#'php' => {
-			#	'directives' => {
-			#		'date.timezone' => 'Europe/Berlin'
-			#	}
-			#}
-			#:oh_my_zsh => {
-			#	:users => ['vagrant']
-			#}
-		}
 	end
 
 	config.vm.provider "virtualbox" do |v|
-        v.name = "TYPO3 Neos"
-        v.customize ["modifyvm", :id, "--memory", "2048"]
+		v.name = "TYPO3 Neos Site 001"
+		v.customize ["modifyvm", :id, "--memory", "2048"]
+		v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+		v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
 	end
 end
