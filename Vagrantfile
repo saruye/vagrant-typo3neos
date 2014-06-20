@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
 
 	config.vm.network :private_network, ip: "192.168.23.4"
 
+	config.vm.synced_folder 'vhost-root', '/var/www/typo3.neos', create: 'true', type: 'nfs'
+
 	config.vm.provision :chef_solo do |chef|
 		chef.cookbooks_path = [ "cookbooks", "site-cookbooks" ]
 

@@ -46,10 +46,24 @@ apache_site "typo3.neos" do
 	enable true
 end
 
-# clone and install typo3flow
+##############################
+### CLONE AND INSTALL NEOS ###
+##############################
+
 execute "clone typo3.neos base" do
-	command "git clone git://git.typo3.org/Neos/Distributions/Base.git /var/www/typo3.neos"
-	creates "/var/www/typo3.neos/"
+	command "git clone git://git.typo3.org/Neos/Distributions/Base.git /var/www/typo3.neos/tmp"
+end
+execute "clone typo3.neos base" do
+	command "mv /var/www/typo3.neos/tmp/* /var/www/typo3.neos/"
+end
+execute "clone typo3.neos base" do
+	command "mv /var/www/typo3.neos/tmp/.gitignore /var/www/typo3.neos/"
+end
+execute "clone typo3.neos base" do
+	command "mv /var/www/typo3.neos/tmp/.git /var/www/typo3.neos/"
+end
+execute "clone typo3.neos base" do
+	command "rmdir /var/www/typo3.neos/tmp"
 end
 
 execute "get composer" do
@@ -60,6 +74,20 @@ end
 execute "install TYPO3 Neos" do
 	command "php composer.phar install --dev"
 	cwd "/var/www/typo3.neos"
+end
+
+###############################
+### FIXING FILE PERMISSIONS ###
+###############################
+
+execute 'Fix permissions' do
+	command 'cd /var/www && chmod gu+w typo3.neos -R && chgrp www-data typo3.neos -R'
+end
+
+execute 'Set crazy file permissions so that we can use NFS' do
+	command 'chmod -R 2777 /var/www/typo3.neos'
+	#user 'vagrant'
+	group 'www-data'
 end
 
 execute "fixing permissions" do
