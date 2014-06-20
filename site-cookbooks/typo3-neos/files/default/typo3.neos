@@ -13,7 +13,7 @@
 		AllowOverride FileInfo Options=All,MultiViews
 
 		<Ifmodule mod_php5.c>
-			php_admin_value memory_limit 256M
+			php_admin_value memory_limit 1024M
 		</Ifmodule>
 
 	</Directory>

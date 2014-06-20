@@ -38,6 +38,11 @@ execute "restart apache" do
 	command "/etc/init.d/apache2 reload"
 end
 
+cookbook_file "/etc/php5/conf.d/php_xdebug.ini" do
+	source "php_xdebug.ini"
+	mode 0655
+end
+
 # enable host and disable default host
 apache_site "000-default" do
 	enable false

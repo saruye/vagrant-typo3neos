@@ -53,7 +53,9 @@ packages=[
     "openssh-server",
     "curl",
     "mcrypt",
-    "php5-mcrypt"
+    "php5-mcrypt",
+	"poppler-utils",
+	"php5-xdebug"
 ]
 
 case node[:platform]
