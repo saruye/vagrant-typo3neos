@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "quantal"
-	config.vm.box_url = "https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box"
+	config.omnibus.chef_version = :latest
+	config.vm.box = "hashicorp/precise64"
 
 	config.ssh.forward_agent = true
 
@@ -13,9 +13,6 @@ Vagrant.configure("2") do |config|
 
 	config.vm.provision :chef_solo do |chef|
 		chef.cookbooks_path = [ "cookbooks", "site-cookbooks" ]
-
-		#chef.log_level = :debug
-
 		chef.add_recipe "typo3-neos"
 
 	end

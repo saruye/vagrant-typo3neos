@@ -2,24 +2,22 @@
 
 site 'http://community.opscode.com/api/v1'
 
-cookbook "ntp"
-cookbook "openssh"
+cookbook "ntp",
+	"1.6.4"
+cookbook "openssh",
+	"1.3.4"
 cookbook "php",
-	'1.4.6'
-cookbook "apache2"
+	"1.4.6"
+cookbook "apache2",
+	"1.10.4"
 cookbook "mysql",
-	"4.1.2"
-cookbook "apt"
+	"5.3.6"
 cookbook "git",
-	# Workound for  Error: undefined local variable or method `use_inline_resources'
-	:git => "git://github.com/ComSubVie/git.git"
+	"4.0.2"
+cookbook "apt",
+	"2.4.0"
 cookbook "composer",
     :git => "git://github.com/Morphodo/composer.git"
 cookbook "typo3_flow",
     :git => "git://github.com/Morphodo/typo3_flow-chef-recipe.git"
-cookbook "chef-oh-my-zsh",
-    :git => "git://github.com/tlayh/chef-oh-my-zsh.git"
-cookbook "tl-cucumber",
-    :git => "git://github.com/tlayh/tl-cucumber.git"
-cookbook 'build-essential',
-	'1.4.4'
+

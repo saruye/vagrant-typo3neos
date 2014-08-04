@@ -58,7 +58,7 @@ packages=[
 	"php5-xdebug"
 ]
 
-case node[:platform]
+case node['platform']
   when "debian","ubuntu"
     packagespurge.each do |pkg|
       package pkg do

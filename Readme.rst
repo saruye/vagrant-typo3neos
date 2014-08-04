@@ -1,51 +1,64 @@
+======================
 TYPO3 Neos Vagrant Box
-==============================
+======================
 
-Copyright 2013, Thomas Layh // http://layh.com
+This Vagrant Box is based on the work of Thomas Layh (2013).
 
-Description:
---------------
+Description
+===========
 
-Will install TYPO3 Neos including all required setups for the server environment.
+Will install the current master of TYPO3 Neos including all required setups for the server environment.
 
+Installation
+============
 
-Installation:
---------------
+*Tested with Vagrant 1.6.3 and VirtualBox 4.3.12 on Mac OS X*
 
-*Tested with Vagrant 1.3.5 and VirtualBox 4.3.2*
+1. Download the Vagrant installer from http://downloads.vagrantup.com/
 
-1. Download the Vagrant installer from:
+2. Install required plugins
 
-http://downloads.vagrantup.com
+	.. code::
 
-2. Install Librarian and librarian-chef and vagrant-vbguest
-::
-   vagrant plugin install chef
-   vagrant plugin install librarian
-   vagrant plugin install librarian-chef
-   vagrant plugin install vagrant-vbguest
-   vagrant plugin install vagrant-librarian-chef
+		vagrant plugin install chef
+		vagrant plugin install librarian
+		vagrant plugin install librarian-chef
+		vagrant plugin install vagrant-vbguest
+		vagrant plugin install vagrant-librarian-chef
 
 3. Install required cookbooks
-::
-   librarian-chef install
+
+	.. code::
+
+		librarian-chef install
 
 4. Add to your host file
-::
-   192.168.23.4 typo3.neos
 
-5. Run "vagrant up"
+	.. code::
 
-Will take about 10 Minutes, depending on your system speed and download rate
+		192.168.23.4 typo3.neos
 
-6. Setup TYPO3.Neos
+5. Run
 
-After the setup is complete, open http://typo3.neos/setup and follow the instructions
+	.. code::
 
-7. Database
+		vagrant up
 
-Username/Password: root/root
+6. Call the page http://typo3.neos/setup and complete the setup using the TYPO3 Neos setup tool
 
-8. Shutdown with "vagrant suspend" and restart with "vagrant resume"
+	.. code::
 
-This will save the state of the virtual machine. Make sure all your developed stuff is saved somewhere, because if the box crashes for some reaseon, everything will be gone.
+		Username: root
+		Password: root
+
+7. Shutdown with
+
+	.. code::
+
+		vagrant suspend
+
+8. Restart with
+
+	.. code::
+
+		vagrant resume
