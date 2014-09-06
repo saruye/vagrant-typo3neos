@@ -46,6 +46,11 @@ cookbook_file "/etc/php5/conf.d/php_xdebug.ini" do
 	mode 0655
 end
 
+cookbook_file "/etc/php5/conf.d/php_maxValues.ini" do
+	source "php_maxValues.ini"
+	mode 0655
+end
+
 # enable host and disable default host
 apache_site "000-default" do
 	enable false
@@ -58,19 +63,19 @@ end
 ### CLONE AND INSTALL NEOS ###
 ##############################
 
-execute "clone typo3.neos base" do
+execute "clone typo3.neos base 1/5" do
 	command "git clone git://git.typo3.org/Neos/Distributions/Base.git /var/www/typo3.neos/tmp"
 end
-execute "clone typo3.neos base" do
+execute "clone typo3.neos base 2/5" do
 	command "mv /var/www/typo3.neos/tmp/* /var/www/typo3.neos/"
 end
-execute "clone typo3.neos base" do
+execute "clone typo3.neos base 3/5" do
 	command "mv /var/www/typo3.neos/tmp/.gitignore /var/www/typo3.neos/"
 end
-execute "clone typo3.neos base" do
+execute "clone typo3.neos base 4/5" do
 	command "mv /var/www/typo3.neos/tmp/.git /var/www/typo3.neos/"
 end
-execute "clone typo3.neos base" do
+execute "clone typo3.neos base 5/5" do
 	command "rmdir /var/www/typo3.neos/tmp"
 end
 
