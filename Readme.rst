@@ -25,6 +25,7 @@ Installation
 		vagrant plugin install librarian-chef
 		vagrant plugin install vagrant-vbguest
 		vagrant plugin install vagrant-librarian-chef
+		vagrant plugin install vagrant-omnibus
 
 3. Install required cookbooks
 
