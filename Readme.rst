@@ -12,9 +12,12 @@ Will install the current master of TYPO3 Neos including all required setups for 
 Installation
 ============
 
-*Tested with Vagrant 1.6.3 and VirtualBox 4.3.12 on Mac OS X*
+1. Download and install Vagrant and VirtualBox
 
-1. Download the Vagrant installer from http://downloads.vagrantup.com/
+* http://downloads.vagrantup.com/
+* https://www.virtualbox.org/wiki/Downloads
+
+*Tested with Vagrant 1.6.3 and VirtualBox 4.3.12 on Mac OS X*
 
 2. Install required plugins
 
