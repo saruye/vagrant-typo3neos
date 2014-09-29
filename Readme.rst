@@ -28,7 +28,7 @@ Installation
 		vagrant plugin install vagrant-omnibus
 
 
-3. Clone this repository and change into the project direcotry git creates
+3. Clone this repository and change into the project directory git creates
 
 4. Install required cookbooks
 
