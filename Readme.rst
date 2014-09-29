@@ -27,38 +27,41 @@ Installation
 		vagrant plugin install vagrant-librarian-chef
 		vagrant plugin install vagrant-omnibus
 
-3. Install required cookbooks
+
+3. Clone this repository and change into the project direcotry git creates
+
+4. Install required cookbooks
 
 	.. code::
 
 		librarian-chef install
 
-4. Add to your host file
+5. Add to your host file
 
 	.. code::
 
 		192.168.23.4 typo3.neos
 
-5. Run
+6. Run
 
 	.. code::
 
 		vagrant up
 
-6. Call the page http://typo3.neos/setup and complete the setup using the TYPO3 Neos setup tool
+7. Call the page http://typo3.neos/setup and complete the setup using the TYPO3 Neos setup tool
 
 	.. code::
 
 		Username: root
 		Password: root
 
-7. Shutdown with
+8. Shutdown with
 
 	.. code::
 
 		vagrant suspend
 
-8. Restart with
+9. Restart with
 
 	.. code::
 
